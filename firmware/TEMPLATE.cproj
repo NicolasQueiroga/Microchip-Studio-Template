@@ -575,19 +575,12 @@
     <Folder Include="src\ASF\thirdparty\CMSIS\Lib\GCC\" />
     <Folder Include="src\config\" />
     <Folder Include="src\auxiliary" />
-    <Folder Include="src\ai" />
     <Folder Include="src\oled" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\ASF\sam\drivers\rtc\rtc.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="src\ai\ai.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\ai\ai.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\asf.h">
       <SubType>compile</SubType>
     </Compile>
