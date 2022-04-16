@@ -197,32 +197,15 @@ void RTC_Handler(void)
 }
 
 // sw
-void clear_screen(int loc)
+void clear_screen()
 {
-    if (loc == -1)
-    {
-        gfx_mono_generic_draw_filled_rect(0, 0, 127, 31, GFX_PIXEL_CLR);
-        // gfx_mono_draw_string("             ", 0, 16, &sysfont);
-    }
-    else if (loc == 0)
-        gfx_mono_generic_draw_filled_rect(0, 0, 127, 31, GFX_PIXEL_CLR);
-    else if (loc == 1)
-        gfx_mono_generic_draw_filled_rect(0, 0, 127, 31, GFX_PIXEL_CLR);
-
-    return;
+    gfx_mono_generic_draw_filled_rect(0, 0, 127, 31, GFX_PIXEL_CLR);
 }
 
 void draw_string(char *text)
 {
-    char str[20];
-    sprintf(str, "%s", text);
     gfx_mono_draw_string("            ", 0, 3, &sysfont);
-    gfx_mono_draw_string(str, 0, 3, &sysfont);
-}
-
-void draw_dots(int x)
-{
-    gfx_mono_draw_filled_circle(x, 25, 2, GFX_PIXEL_SET, GFX_WHOLE);
+    gfx_mono_draw_string(text, 0, 3, &sysfont);
 }
 
 void draw_time(int h, int m, int s)
@@ -240,7 +223,7 @@ _Bool get_but1_flag(void)
 {
     return but1_flag;
 }
-_Bool set_but1_flag(_Bool val)
+void set_but1_flag(_Bool val)
 {
     but1_flag = val;
 }
@@ -253,7 +236,7 @@ _Bool get_but2_flag(void)
 {
     return but2_flag;
 }
-_Bool set_but2_flag(_Bool val)
+void set_but2_flag(_Bool val)
 {
     but2_flag = val;
 }
@@ -266,7 +249,7 @@ _Bool get_but3_flag(void)
 {
     return but3_flag;
 }
-_Bool set_but3_flag(_Bool val)
+void set_but3_flag(_Bool val)
 {
     but3_flag = val;
 }
@@ -275,7 +258,7 @@ _Bool get_tc0_flag(void)
 {
     return tc0_flag;
 }
-_Bool set_tc0_flag(_Bool val)
+void set_tc0_flag(_Bool val)
 {
     tc0_flag = val;
 }
@@ -284,7 +267,7 @@ _Bool get_tc1_flag(void)
 {
     return tc1_flag;
 }
-_Bool set_tc1_flag(_Bool val)
+void set_tc1_flag(_Bool val)
 {
     tc1_flag = val;
 }
@@ -293,7 +276,7 @@ _Bool get_rtc_second_flag(void)
 {
     return flag_rtc_second;
 }
-_Bool set_rtc_second_flag(_Bool val)
+void set_rtc_second_flag(_Bool val)
 {
     flag_rtc_second = val;
 }
@@ -302,17 +285,14 @@ _Bool get_rtc_alarm_flag(void)
 {
     return flag_rtc_alarm;
 }
-_Bool set_rtc_alarm_flag(_Bool val)
+void set_rtc_alarm_flag(_Bool val)
 {
     flag_rtc_alarm = val;
 }
 
 void pin_toggle(Pio *pio, uint32_t mask)
 {
-    if (pio_get_output_data_status(pio, mask))
-        pio_clear(pio, mask);
-    else
-        pio_set(pio, mask);
+    pio_get_output_data_status(pio, mask) ? pio_clear(pio, mask) : pio_set(pio, mask);
 }
 
 void blink_led(Pio *p_pio, const uint32_t ul_mask, int n, int t)

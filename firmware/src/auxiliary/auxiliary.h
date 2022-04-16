@@ -63,31 +63,30 @@ void RTT_Handler(void);
 // sw ----
 void but1_callback(void);
 _Bool get_but1_flag(void);
-_Bool set_but1_flag(_Bool val);
+void set_but1_flag(_Bool val);
 
 void but2_callback(void);
 _Bool get_but2_flag(void);
-_Bool set_but2_flag(_Bool val);
+void set_but2_flag(_Bool val);
 
 void but3_callback(void);
 _Bool get_but3_flag(void);
-_Bool set_but3_flag(_Bool val);
+void set_but3_flag(_Bool val);
 
 _Bool get_tc0_flag(void);
-_Bool set_tc0_flag(_Bool val);
+void set_tc0_flag(_Bool val);
 
 _Bool get_tc1_flag(void);
-_Bool set_tc1_flag(_Bool val);
+void set_tc1_flag(_Bool val);
 
 _Bool get_rtc_second_flag(void);
-_Bool set_rtc_second_flag(_Bool val);
+void set_rtc_second_flag(_Bool val);
 
 _Bool get_rtc_alarm_flag(void);
-_Bool set_rtc_alarm_flag(_Bool val);
+void set_rtc_alarm_flag(_Bool val);
 
-void clear_screen(int loc);
+void clear_screen();
 void draw_string(char *text);
-void draw_dots(int x);
 void draw_time(int h, int m, int s);
 void pin_toggle(Pio *pio, uint32_t mask);
 void blink_led(Pio *p_pio, const uint32_t ul_mask, int n, int t);
