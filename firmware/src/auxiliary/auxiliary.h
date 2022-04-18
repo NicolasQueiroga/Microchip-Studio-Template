@@ -50,15 +50,8 @@ typedef struct
 
 // hw ----
 // inits
-void TC_init(Tc *TC, int ID_TC, int TC_CHANNEL, int freq);
-void RTT_init(float freqPrescale, uint32_t IrqNPulses, uint32_t rttIRQSource);
-void RTC_init(Rtc *rtc, uint32_t id_rtc, Calendar t, uint32_t irq_type);
 void init(void);
 
-// handlers
-void TC0_Handler(void);
-void TC1_Handler(void);
-void RTT_Handler(void);
 
 // sw ----
 void but1_callback(void);
@@ -72,18 +65,6 @@ void set_but2_flag(_Bool val);
 void but3_callback(void);
 _Bool get_but3_flag(void);
 void set_but3_flag(_Bool val);
-
-_Bool get_tc0_flag(void);
-void set_tc0_flag(_Bool val);
-
-_Bool get_tc1_flag(void);
-void set_tc1_flag(_Bool val);
-
-_Bool get_rtc_second_flag(void);
-void set_rtc_second_flag(_Bool val);
-
-_Bool get_rtc_alarm_flag(void);
-void set_rtc_alarm_flag(_Bool val);
 
 void clear_screen();
 void draw_string(char *text);
