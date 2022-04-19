@@ -1,3 +1,4 @@
+#include "auxiliary/aux_functions/aux_functions.h"
 #include "aux_time.h"
 
 // globals
@@ -125,7 +126,8 @@ void TC0_Handler(void)
 void TC1_Handler(void)
 {
     volatile uint32_t status = tc_get_status(TC0, 1);
-    pin_toggle(LED3_PIO, LED3_PIO_IDX_MASK);
+    afec_channel_enable(AFEC_POT, AFEC_POT_CHANNEL);
+    afec_start_software_conversion(AFEC_POT);
     tc1_flag = 1;
 }
 

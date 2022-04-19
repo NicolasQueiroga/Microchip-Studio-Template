@@ -1,7 +1,8 @@
 #ifndef __AUX_TIME_H_
 #define __AUX_TIME_H_
 
-#include "asf.h"
+#include "auxiliary/aux_hw/aux_hw.h"
+
 
 typedef struct
 {
@@ -36,5 +37,6 @@ void RTC_init(Rtc *rtc, uint32_t id_rtc, Calendar t, uint32_t irq_type);
 void TC0_Handler(void);
 void TC1_Handler(void);
 void RTT_Handler(void);
+void RTC_Handler(void);
 
 #endif
